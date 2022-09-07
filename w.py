@@ -29,7 +29,6 @@ def fibonacci_rec(num: int) -> int:
             mass[num] = fib(num-1,mass)+fib(num-2,mass)
         return mass[num]
 
-
     def main():
         mass = {}
         for num in [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610,
@@ -47,6 +46,9 @@ def fibonacci_rec(num: int) -> int:
 
     return fibonacci_rec(num-1)+fibonacci_rec(num-2)
 
+
+
+  
 
 def fibonacci_iter(num: int) -> int:
     """Returns the fibonacci number according to the number specified in the
@@ -142,7 +144,7 @@ def determinant(matrix) -> int:
             for row in range(item,len(matrix)):
                 param.append(matrix[row][item])
                 for colum in range(item,len(matrix[row])):
-                    matrix[row][colum] = round(matrix[row][colum]/param[len(param)-1],1)
+                    matrix[row][colum] = (matrix[row][colum]/param[len(param)-1])
             for row in range(item+1,len(matrix)):
                 for colum in range(item,len(matrix[row])):
                     matrix[row][colum] = (matrix[item][colum]-matrix[row][colum]) 
@@ -151,7 +153,7 @@ def determinant(matrix) -> int:
         print(param)
         for i in param:
             resul *=i
-        return resul
+        return round(resul)
             
 
 
@@ -170,10 +172,9 @@ def main():
     #            987, 1597, 2584, 4181, 6765, 10946, 17711]:
     #     print_exec_time(lambda x: print(x, fibonacci_iter(x)), x=num)
 
-    matrix =[[3, -3, -5, 8],
-                  [-3, 2, 4, -6],
-                  [2, -5, -7, 5],
-                  [-4, 3, 5, -6]]
+    matrix =[[1, -2, 3],
+                  [-4, 5, -6],
+                  [7, -8, 9]]
     print(f'determinant: {determinant(matrix)}')
 
 
